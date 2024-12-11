@@ -15,7 +15,7 @@ import { langMap, languages, loadedLangs, setLang } from "~/app/i18n"
 // import { TbLanguageHiragana } from "solid-icons/tb";
 import { IoLanguageOutline } from "solid-icons/io"
 import { Portal } from "solid-js/web"
-
+import { setLocal } from '~/store/local_settings'
 const [fetchingLang, setFetchingLang] = createSignal(false)
 
 export const SwitchLanguage = <C extends ElementType = "button">(
@@ -31,7 +31,7 @@ export const SwitchLanguage = <C extends ElementType = "button">(
     }
     locale(lang)
     setLang(lang)
-    localStorage.setItem("lang", lang)
+    setLocal("lang", lang)
   }
   return (
     <>

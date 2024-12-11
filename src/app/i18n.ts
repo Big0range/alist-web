@@ -1,6 +1,6 @@
 import { createI18nContext } from "@solid-primitives/i18n"
 import { createSignal } from "solid-js"
-
+import { local } from '~/store/local_settings'
 interface Language {
   code: string
   lang: string
@@ -29,7 +29,7 @@ const defaultLang =
   )?.code ||
   "en"
 
-export let initialLang = localStorage.getItem("lang") ?? ""
+export let initialLang = local['lang'] ?? ""
 if (!initialLang || !languages.find((lang) => lang.code === initialLang)) {
   initialLang = defaultLang
 }
