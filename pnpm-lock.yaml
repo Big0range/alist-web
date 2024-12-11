@@ -23,6 +23,9 @@ importers:
       '@motionone/solid':
         specifier: ^10.14.1
         version: 10.14.1(solid-js@1.4.8)
+      '@plugin-web-update-notification/vite':
+        specifier: ^1.7.1
+        version: 1.7.1(vite@3.0.8(terser@5.14.2))
       '@solid-primitives/i18n':
         specifier: ^1.1.0
         version: 1.1.0(solid-js@1.4.8)
@@ -68,6 +71,9 @@ importers:
       flv.js:
         specifier: ^1.6.2
         version: 1.6.2
+      git-cz:
+        specifier: ^4.9.0
+        version: 4.9.0
       hls.js:
         specifier: ^1.2.1
         version: 1.2.1
@@ -125,6 +131,9 @@ importers:
       typescript-natural-sort:
         specifier: ^0.7.2
         version: 0.7.2
+      vite-plugin-remove-console:
+        specifier: ^2.2.0
+        version: 2.2.0
     devDependencies:
       '@crowdin/cli':
         specifier: ^3.7.10
@@ -132,6 +141,9 @@ importers:
       '@hrgui/libass-wasm-ts':
         specifier: ^1.0.3
         version: 1.0.3
+      '@types/crypto-js':
+        specifier: ^4.2.2
+        version: 4.2.2
       '@types/mark.js':
         specifier: ^8.11.8
         version: 8.11.8
@@ -150,6 +162,9 @@ importers:
       husky:
         specifier: ^8.0.2
         version: 8.0.2
+      i:
+        specifier: ^0.3.7
+        version: 0.3.7
       lint-staged:
         specifier: ^13.0.4
         version: 13.0.4
@@ -437,6 +452,14 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
+  '@plugin-web-update-notification/core@1.7.1':
+    resolution: {integrity: sha512-G5xbuFE4B3TGxM9FxYwUlbGleuWNUzdbw3ZNcht1WDn85Qbhgzk7lQwuXVilxZII6LhsghJ4Zdapw0jgzuCJQw==}
+
+  '@plugin-web-update-notification/vite@1.7.1':
+    resolution: {integrity: sha512-qIP2JBt19gZGWjagZOGc0qatoLGa2h4GnrHjF1ETzVgHUuJMgBeZpqMjzO81MwbmOUQdWbvwlF3ZZhXopeXB/w==}
+    peerDependencies:
+      vite: ^5.0.0 || >4.0.0 || ^3.0.0
+
   '@solid-primitives/event-listener@2.3.0':
     resolution: {integrity: sha512-0DS7DQZvCExWSpurVZC9/wjI8RmkhuOtWOy6Pp1Woq9ElMT9/bfjNpkwXsOwisLpcTqh9eUs17kp7jtpWcC20w==}
     peerDependencies:
@@ -479,6 +502,9 @@ packages:
 
   '@stitches/core@1.2.8':
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
+
+  '@types/crypto-js@4.2.2':
+    resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
 
   '@types/debug@4.1.7':
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
@@ -1031,6 +1057,10 @@ packages:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
 
+  git-cz@4.9.0:
+    resolution: {integrity: sha512-cSRL8IIOXU7UFLdbziCYqg8f8InwLwqHezkiRHNSph7oZqGv0togId1kMTfKil6gzK0VaSXeVBb4oDl0fQCHiw==}
+    hasBin: true
+
   gl-matrix@3.4.3:
     resolution: {integrity: sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA==}
 
@@ -1117,6 +1147,10 @@ packages:
     resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
     engines: {node: '>=14'}
     hasBin: true
+
+  i@0.3.7:
+    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
+    engines: {node: '>=0.4'}
 
   ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
@@ -1884,6 +1918,9 @@ packages:
   vite-plugin-dynamic-base@0.4.4:
     resolution: {integrity: sha512-++d35lUSWhIRcoKfTUlWSe3BFMTJPB0iQzAhNCNwiFILfouXAosGhB0DNjtxiIuHSORSrxwawzlwByAGbDuJgA==}
 
+  vite-plugin-remove-console@2.2.0:
+    resolution: {integrity: sha512-qgjh5pz75MdE9Kzs8J0kBwaCfifHV0ezRbB9rpGsIOxam+ilcGV7WOk91vFJXquzRmiKrFh3Hxlh0JJWAmXTbQ==}
+
   vite-plugin-solid@2.3.0:
     resolution: {integrity: sha512-N2sa54C3UZC2nN5vpj5o6YP+XdIAZW6n6xv8OasxNAcAJPFeZT7EOVvumL0V4c8hBz1yuYniMWdESY8807fVSg==}
     peerDependencies:
@@ -2295,6 +2332,13 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
+  '@plugin-web-update-notification/core@1.7.1': {}
+
+  '@plugin-web-update-notification/vite@1.7.1(vite@3.0.8(terser@5.14.2))':
+    dependencies:
+      '@plugin-web-update-notification/core': 1.7.1
+      vite: 3.0.8(terser@5.14.2)
+
   '@solid-primitives/event-listener@2.3.0(solid-js@1.4.8)':
     dependencies:
       '@solid-primitives/utils': 6.2.1(solid-js@1.4.8)
@@ -2334,6 +2378,8 @@ snapshots:
       solid-js: 1.4.8
 
   '@stitches/core@1.2.8': {}
+
+  '@types/crypto-js@4.2.2': {}
 
   '@types/debug@4.1.7':
     dependencies:
@@ -2813,6 +2859,8 @@ snapshots:
 
   get-stream@6.0.1: {}
 
+  git-cz@4.9.0: {}
+
   gl-matrix@3.4.3: {}
 
   glob-parent@5.1.2:
@@ -2950,6 +2998,8 @@ snapshots:
   human-signals@3.0.1: {}
 
   husky@8.0.2: {}
+
+  i@0.3.7: {}
 
   ignore@5.2.4: {}
 
@@ -3886,6 +3936,8 @@ snapshots:
   vite-plugin-dynamic-base@0.4.4:
     dependencies:
       node-html-parser: 5.4.1
+
+  vite-plugin-remove-console@2.2.0: {}
 
   vite-plugin-solid@2.3.0(solid-js@1.4.8)(vite@3.0.8(terser@5.14.2)):
     dependencies:

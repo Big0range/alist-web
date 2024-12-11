@@ -97,7 +97,7 @@ export const useDownload = () => {
         return
       }
       try {
-        let save_dir = "/downloads/alist"
+        let save_dir = "/root/Download/aaa"
         // TODO: select dir, but it seems there is no way to get the full path
         // if (window.showDirectoryPicker) {
         //   const dirHandle = await window.showDirectoryPicker()
@@ -105,7 +105,7 @@ export const useDownload = () => {
         //   console.log(dirHandle)
         //   return
         // }
-        save_dir = await getSaveDir(aria2_rpc_url, aria2_rpc_secret)
+        // save_dir = await getSaveDir(aria2_rpc_url, aria2_rpc_secret)
         let isStartAria2Mission = false
         notify.info(`${t("home.package_download.fetching_struct")}`)
         for (const obj of selectedObjs) {

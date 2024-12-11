@@ -1,7 +1,51 @@
 import { createLocalStorage } from "@solid-primitives/storage"
 import { isMobile } from "~/utils/compatibility"
 
-const [local, setLocal, { remove, clear, toJSON }] = createLocalStorage()
+import CryptoJS from "crypto-js"
+
+let key: any = import.meta.env.VITE_ENCRYPTION
+key = CryptoJS.enc.Latin1.parse(key)
+const iv = key
+
+/**
+ * 加密数据
+ * @param str String
+ * @returns String
+ */
+export function encryption(str: string) {
+  const encrypted = CryptoJS.AES.encrypt(str, key, {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.ZeroPadding,
+  })
+  return encrypted.toString()
+}
+
+/**
+ * 解密数据
+ * @param str String
+ * @returns String
+ */
+export function decrypt(str: string) {
+  const decrypt2 = CryptoJS.AES.decrypt(str, key, {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.ZeroPadding,
+  })
+  const decryptedStr = decrypt2.toString(CryptoJS.enc.Utf8)
+  return decryptedStr.toString()
+}
+
+const [local, setLocal, { remove, clear, toJSON }] = createLocalStorage({
+  serializer(value, key) {
+    console.log("加密加密加密加密加密加密加密", { value, key })
+    return encryption(JSON.stringify(value))
+  },
+  deserializer(value, key, options) {
+    console.log("解密解密解密解密解密解密解密解密", { value, key, options })
+    return JSON.parse(decrypt(value))
+  },
+})
 // export function isValidKey(
 //   key: string | number | symbol,
 //   object: object
@@ -12,7 +56,7 @@ const [local, setLocal, { remove, clear, toJSON }] = createLocalStorage()
 export const initialLocalSettings = [
   {
     key: "aria2_rpc_url",
-    default: "http://localhost:6800/jsonrpc",
+    default: "https://www.limeichao.cn:6801/jsonrpc",
   },
   {
     key: "aria2_rpc_secret",

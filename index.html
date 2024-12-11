@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" translate="no">
+<!doctype html>
+<html lang="zh-CN" translate="no">
   <head>
     <!-- customize head -->
     <meta charset="utf-8" />
@@ -35,6 +35,45 @@
       }
       window.__dynamic_base__ = window.ALIST.cdn || ""
     </script>
+    <script>
+      function updateRuntime() {
+        const startDate = new Date("2024-12-05T00:00:00") // 建站日期
+        const now = new Date()
+        const elapsed = now - startDate
+
+        const days = Math.floor(elapsed / (1000 * 60 * 60 * 24))
+        const hours = Math.floor(
+          (elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        )
+        const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((elapsed % (1000 * 60)) / 1000)
+        const runtimeDom = document.getElementById("runtime")
+        if (runtimeDom) {
+          document.getElementById("runtime").innerHTML =
+            `${days}天 ${hours}小时 ${minutes}分 ${seconds}秒`
+        }
+      }
+
+      setInterval(updateRuntime, 1000) // 每秒更新一次时间
+      updateRuntime() // 初始化时间显示
+    </script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://npm.elemecdn.com/font6pro@6.3.0/css/fontawesome.min.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css"
+    />
+    <link
+      href="https://npm.elemecdn.com/font6pro@6.3.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdmirror.com/gh/lm379look/lm379look@main/getip.js"></script>
+    <script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=String.prototype.replaceAll"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -42,5 +81,30 @@
 
     <script src="/src/main.tsx" type="module"></script>
     <!-- customize body -->
+    <!--延迟加载-->
+    <div id="bottom" style="display: none">
+      <div>
+        <center class="dibu">
+          <div style="font-size: 13px; font-weight: bold">
+            <!--显示访客ip-->
+            <p style="text-align: center" id="welcome"></p>
+            <!--显示站点运行时间-->
+            <p style="text-align: center">
+              本站已稳定运行<span id="runtime"></span>
+            </p>
+          </div>
+        </center>
+      </div>
+      <!--延迟加载范围到这里结束-->
+    </div>
+    <!--延迟加载配套使用JS-->
+    <script>
+      let interval = setInterval(() => {
+        if (document.querySelector(".footer")) {
+          document.querySelector("#bottom").style.display = ""
+          clearInterval(interval)
+        }
+      }, 200)
+    </script>
   </body>
 </html>

@@ -5,7 +5,6 @@ import { useFetch, useManageTitle, useT, useUtil } from "~/hooks"
 import { Group, SettingItem, PResp } from "~/types"
 import { handleResp, notify, r } from "~/utils"
 import { Item } from "./SettingItem"
-
 const OtherSettings = () => {
   const t = useT()
   useManageTitle("manage.sidemenu.other")
