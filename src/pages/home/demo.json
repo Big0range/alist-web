@@ -1,0 +1,74 @@
+{
+    "obj": {
+        "name": "游戏",
+        "size": 0,
+        "is_dir": true,
+        "modified": "2024-12-05T04:25:09.581Z",
+        "created": "2024-12-05T04:25:09.581Z",
+        "sign": "",
+        "thumb": "",
+        "type": 0,
+        "hashinfo": "{\"sha1\":\"\"}",
+        "hash_info": {
+            "sha1": ""
+        },
+        "raw_url": "",
+        "readme": "",
+        "header": "",
+        "provider": "AliyundriveOpen",
+        "related": null
+    },
+    "raw_url": "",
+    "related": [],
+    "objs": [
+        {
+            "name": "Galgame不定时更新",
+            "size": 0,
+            "is_dir": true,
+            "modified": "2024-12-05T04:25:09.621Z",
+            "created": "2024-12-05T04:25:09.621Z",
+            "sign": "",
+            "thumb": "",
+            "type": 1,
+            "hashinfo": "{\"sha1\":\"\"}",
+            "hash_info": {
+                "sha1": ""
+            }
+        },
+        {
+            "name": "上古卷轴5 ：天际周年纪念版 豪华汉化简中收藏版 v1.6.659.0.8+全DLC+单独简体补丁 支持手柄 解压即玩",
+            "size": 0,
+            "is_dir": true,
+            "modified": "2024-12-05T04:25:13.075Z",
+            "created": "2024-12-05T04:25:13.075Z",
+            "sign": "",
+            "thumb": "",
+            "type": 1,
+            "hashinfo": "{\"sha1\":\"\"}",
+            "hash_info": {
+                "sha1": ""
+            }
+        },
+        {
+            "name": "只狼",
+            "size": 0,
+            "is_dir": true,
+            "modified": "2024-12-05T04:25:12.463Z",
+            "created": "2024-12-05T04:25:12.463Z",
+            "sign": "",
+            "thumb": "",
+            "type": 1,
+            "hashinfo": "{\"sha1\":\"\"}",
+            "hash_info": {
+                "sha1": ""
+            }
+        }
+    ],
+    "total": 3,
+    "readme": "",
+    "header": "",
+    "provider": "AliyundriveOpen",
+    "state": 4,
+    "err": "",
+    "write": true
+}

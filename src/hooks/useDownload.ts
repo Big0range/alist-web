@@ -1,5 +1,5 @@
 import axios from "axios"
-import { local, password, selectedObjs as _selectedObjs } from "~/store"
+import { local, password, selectedObjs as _selectedObjs, objStore } from "~/store"
 import { fsList, notify, pathBase, pathJoin } from "~/utils"
 import { getLinkByDirAndObj, useRouter, useT } from "~/hooks"
 import { useSelectedLink } from "~/hooks"
@@ -97,7 +97,18 @@ export const useDownload = () => {
         return
       }
       try {
-        let save_dir = "/root/Download/aaa"
+
+        let save_dir = "/root/Download/"
+        const currentCurName = pathBase(pathname())
+        save_dir = save_dir + currentCurName
+        // // 如果下载的是文件夹则这样处理下载路径
+        // if (selectedObjs.length === 1 && selectedObjs[0].is_dir) {
+        //   save_dir = save_dir + pathBase(selectedObjs[0].name)
+        // } else {
+        //   // 如果下载的是文件则这样处理下载路径
+        //   const currentCurName = pathBase(pathname())
+        //   save_dir = save_dir + currentCurName
+        // }
         // TODO: select dir, but it seems there is no way to get the full path
         // if (window.showDirectoryPicker) {
         //   const dirHandle = await window.showDirectoryPicker()

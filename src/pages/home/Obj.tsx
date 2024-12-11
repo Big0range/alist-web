@@ -71,6 +71,8 @@ export const Obj = () => {
           <Match
             when={[State.Folder, State.FetchingMore].includes(objStore.state)}
           >
+          {/* {JSON.stringify(objStore)} */}
+
             <Folder />
           </Match>
           <Match when={objStore.state === State.File}>
