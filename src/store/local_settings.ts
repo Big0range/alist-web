@@ -57,10 +57,16 @@ export const initialLocalSettings = [
   {
     key: "aria2_rpc_url",
     default: "https://www.limeichao.cn:6801/jsonrpc",
+    hidden: true,
   },
   {
     key: "aria2_rpc_secret",
     default: "",
+    hidden: true,
+  },
+  {
+    key:"multifile_download_sleep",
+    default: "0",
   },
   {
     key: "global_default_layout",
@@ -82,7 +88,7 @@ export const initialLocalSettings = [
   },
   {
     key: "position_of_header_navbar",
-    default: "static",
+    default: "sticky",
     type: "select",
     options: ["static", "sticky", "only_navbar_sticky"],
   },

@@ -108,6 +108,8 @@
       "none": "无"
     },
     "global_default_layout": "全局默认布局",
+    "multifile_download_sleep": "多文件下载时等待时间（分钟）",
+    "grid_item_size": "网格视图项目大小",
     "global_default_layout_options": {
       "list": "列表视图",
       "grid": "网格视图",

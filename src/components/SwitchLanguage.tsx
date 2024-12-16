@@ -35,7 +35,7 @@ export const SwitchLanguage = <C extends ElementType = "button">(
   }
   return (
     <>
-      <Menu>
+      {/* <Menu>
         <MenuTrigger cursor="pointer" {...props} />
         <MenuContent>
           <For each={languages}>
@@ -50,7 +50,7 @@ export const SwitchLanguage = <C extends ElementType = "button">(
             )}
           </For>
         </MenuContent>
-      </Menu>
+      </Menu> */}
       <Show when={fetchingLang()}>
         <Portal>
           <Center

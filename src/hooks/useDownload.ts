@@ -50,7 +50,7 @@ export const useDownload = () => {
       })
     },
     sendToAria2: async () => {
-    
+
       const selectedObjs = _selectedObjs()
       const fetchFolderStructure = async (
         pre: string,
@@ -148,7 +148,6 @@ export const useDownload = () => {
                 isStartAria2Mission = true
                 notify.info(`${t("home.package_download.downloading")}`)
               }
-              debugger
               const resp = await axios.post(aria2_rpc_url, {
                 id: Math.random().toString(),
                 jsonrpc: "2.0",
@@ -166,7 +165,12 @@ export const useDownload = () => {
               console.log(resp)
             }
           }
-          await new Promise((resolve) => setTimeout(resolve, 3000))
+          // 分钟
+          const minute_sleep = Math.max(Number(local["multifile_download_sleep"]) || 0, 0)
+          console.log('minute_sleep', minute_sleep, local["multifile_download_sleep"])
+          if (minute_sleep) {
+            await new Promise((resolve) => setTimeout(resolve, 1000 * 60 * minute_sleep))
+          }
         }
         notify.success(t("home.toolbar.send_aria2_success"))
       } catch (e) {
