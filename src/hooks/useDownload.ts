@@ -37,6 +37,7 @@ async function getSaveDir(rpc_url: string, rpc_secret: string) {
   }
   return save_dir
 }
+let sendToAria2Loading = false
 export const useDownload = () => {
   const { rawLinks } = useSelectedLink()
   const t = useT()
@@ -49,6 +50,7 @@ export const useDownload = () => {
       })
     },
     sendToAria2: async () => {
+    
       const selectedObjs = _selectedObjs()
       const fetchFolderStructure = async (
         pre: string,
@@ -146,6 +148,7 @@ export const useDownload = () => {
                 isStartAria2Mission = true
                 notify.info(`${t("home.package_download.downloading")}`)
               }
+              debugger
               const resp = await axios.post(aria2_rpc_url, {
                 id: Math.random().toString(),
                 jsonrpc: "2.0",
@@ -163,6 +166,7 @@ export const useDownload = () => {
               console.log(resp)
             }
           }
+          await new Promise((resolve) => setTimeout(resolve, 3000))
         }
         notify.success(t("home.toolbar.send_aria2_success"))
       } catch (e) {

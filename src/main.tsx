@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { Router } from "@solidjs/router"
 import { render } from "solid-js/web"
-
+import "./utils/webUpdateNotice"
 import { Index } from "./app"
 
 declare global {
@@ -20,6 +20,7 @@ declare module "solid-js" {
 render(
   () => (
     <Router>
+      {123132}
       <Index />
     </Router>
   ),
