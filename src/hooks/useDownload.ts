@@ -121,7 +121,9 @@ export const useDownload = () => {
         // save_dir = await getSaveDir(aria2_rpc_url, aria2_rpc_secret)
         let isStartAria2Mission = false
         notify.info(`${t("home.package_download.fetching_struct")}`)
-        for (const obj of selectedObjs) {
+        for (let index = 0; index < selectedObjs.length; index++) {
+          // for (const obj of selectedObjs) {
+          const obj = selectedObjs[index]
           const res = await fetchFolderStructure("", obj)
 
           if (typeof res !== "object" || res.length === undefined) {
@@ -162,14 +164,23 @@ export const useDownload = () => {
                   },
                 ],
               })
+              // 只有当res和selectedObjs长度都等于1时  或者res和selectedObjs进行到最后一个了 才不会进行sleep判断
+
+              if ((res.length === 1 && selectedObjs.length === 1)|| (res.length - 1 === key && selectedObjs.length - 1 === index)) {
+                notify.success("全部下载任务发送成功")
+                console.log('全部下载任务发送成功')
+              }else {
+                notify.success(`${key + 1}/${res.length}`)
+                // 分钟
+                const minute_sleep = Math.max(Number(local["multifile_download_sleep"]) || 0, 0)
+                console.log('minute_sleep', minute_sleep, local["multifile_download_sleep"])
+                if (minute_sleep) {
+                  await new Promise((resolve) => setTimeout(resolve, 1000 * 60 * minute_sleep))
+                }
+              }
+
               console.log(resp)
             }
-          }
-          // 分钟
-          const minute_sleep = Math.max(Number(local["multifile_download_sleep"]) || 0, 0)
-          console.log('minute_sleep', minute_sleep, local["multifile_download_sleep"])
-          if (minute_sleep) {
-            await new Promise((resolve) => setTimeout(resolve, 1000 * 60 * minute_sleep))
           }
         }
         notify.success(t("home.toolbar.send_aria2_success"))

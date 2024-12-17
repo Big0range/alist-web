@@ -20,7 +20,6 @@ declare module "solid-js" {
 render(
   () => (
     <Router>
-      {123132}
       <Index />
     </Router>
   ),
