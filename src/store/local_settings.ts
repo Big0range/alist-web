@@ -38,11 +38,11 @@ export function decrypt(str: string) {
 
 const [local, setLocal, { remove, clear, toJSON }] = createLocalStorage({
   serializer(value, key) {
-    console.log("加密加密加密加密加密加密加密", { value, key })
+    // console.log("加密加密加密加密加密加密加密", { value, key })
     return encryption(JSON.stringify(value))
   },
   deserializer(value, key, options) {
-    console.log("解密解密解密解密解密解密解密解密", { value, key, options })
+    // console.log("解密解密解密解密解密解密解密解密", { value, key, options })
     return JSON.parse(decrypt(value))
   },
 })

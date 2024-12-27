@@ -192,14 +192,14 @@ const [_layout, _setLayout] = createSignal<LayoutType>(
   layoutRecord[pathname()] || local["global_default_layout"],
 )
 export const layout = () => {
-  const layout = layoutRecord[pathname()]
-  _setLayout(layout || local["global_default_layout"])
+  const layoutType = layoutRecord[pathname()]
+  _setLayout(layoutType || local["global_default_layout"])
   return _layout()
 }
-export const setLayout = (layout: LayoutType) => {
-  layoutRecord[pathname()] = layout
+export const setLayout = (layoutType: LayoutType) => {
+  layoutRecord[pathname()] = layoutType
   localStorage.setItem("layoutRecord", JSON.stringify(layoutRecord))
-  _setLayout(layout)
+  _setLayout(layoutType)
 }
 
 const [_checkboxOpen, setCheckboxOpen] = createStorageSignal<string>(

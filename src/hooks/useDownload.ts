@@ -101,7 +101,9 @@ export const useDownload = () => {
       try {
 
         let save_dir = "/root/Download/"
-        const currentCurName = pathBase(pathname())
+        const fullPathList = pathname().split('/')
+        const currentCurName = fullPathList.slice(2).join('/')
+        // const currentCurName = pathBase(pathname())
         save_dir = save_dir + currentCurName
         // // 如果下载的是文件夹则这样处理下载路径
         // if (selectedObjs.length === 1 && selectedObjs[0].is_dir) {
