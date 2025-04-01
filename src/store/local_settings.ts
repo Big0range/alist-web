@@ -61,7 +61,7 @@ export const initialLocalSettings = [
   },
   {
     key: "aria2_rpc_secret",
-    default: "",
+    default: "xiaomei888",
     hidden: true,
   },
   {

@@ -65,7 +65,7 @@ const OtherSettings = () => {
 
   return (
     <MaybeLoading loading={settingsLoading()}>
-      <Heading mb="$2">{t("settings_other.aria2")}</Heading>
+     {/* <Heading mb="$2">{t("settings_other.aria2")}</Heading>
       <SimpleGrid gap="$2" columns={{ "@initial": 1, "@md": 2 }}>
         <Item
           {...settings().find((i) => i.key === "aria2_uri")!}
@@ -89,7 +89,7 @@ const OtherSettings = () => {
         }}
       >
         {t("settings_other.set_aria2")}
-      </Button>
+      </Button> */}
       <Heading my="$2">{t("settings_other.qbittorrent")}</Heading>
       <SimpleGrid gap="$2" columns={{ "@initial": 1, "@md": 2 }}>
         <Item

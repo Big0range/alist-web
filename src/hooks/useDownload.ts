@@ -100,7 +100,7 @@ export const useDownload = () => {
       }
       try {
 
-        let save_dir = "/root/Download/"
+        let save_dir = "/data/alist/下载/"
         const fullPathList = pathname().split('/')
         const currentCurName = fullPathList.slice(2).join('/')
         // const currentCurName = pathBase(pathname())
