@@ -74,15 +74,12 @@ importers:
       flv.js:
         specifier: ^1.6.2
         version: 1.6.2
-<<<<<<< HEAD
       git-cz:
         specifier: ^4.9.0
         version: 4.9.0
-=======
       hash-wasm:
         specifier: ^4.12.0
         version: 4.12.0
->>>>>>> source/main
       hls.js:
         specifier: ^1.2.1
         version: 1.2.1
@@ -153,12 +150,9 @@ importers:
       '@hrgui/libass-wasm-ts':
         specifier: ^1.0.3
         version: 1.0.3
-<<<<<<< HEAD
-=======
       '@types/bencode':
         specifier: ^2.0.4
         version: 2.0.4
->>>>>>> source/main
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
@@ -524,12 +518,9 @@ packages:
   '@stitches/core@1.2.8':
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
 
-<<<<<<< HEAD
-=======
   '@types/bencode@2.0.4':
     resolution: {integrity: sha512-sirDu3HUSG7jZMlhTDvCzSFiPR4lkUYBQA75CoMi6DEf2alFZWJWtHgfjBbb9PachPZhPMB1IlH09deyMNBipQ==}
 
->>>>>>> source/main
   '@types/crypto-js@4.2.2':
     resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
 
@@ -2498,13 +2489,10 @@ snapshots:
 
   '@stitches/core@1.2.8': {}
 
-<<<<<<< HEAD
-=======
   '@types/bencode@2.0.4':
     dependencies:
       '@types/node': 20.0.0
 
->>>>>>> source/main
   '@types/crypto-js@4.2.2': {}
 
   '@types/debug@4.1.7':

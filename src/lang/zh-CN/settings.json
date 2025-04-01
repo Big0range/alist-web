@@ -28,6 +28,8 @@
   "ftp_tls_public_cert_path": "TLS 证书路径",
   "hide_files": "隐藏文件",
   "home_container": "主容器",
+  "s3_restart_to_apply": "S3 重启以应用",
+  "s3_generate": "S3 存储桶",
   "home_containers": {
     "hope_container": "Hope 容器",
     "max_980px": "最大 980px"
