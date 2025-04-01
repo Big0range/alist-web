@@ -28,11 +28,11 @@ import {
   VscodeIconsFileTypePhotoshop2,
 } from "~/components"
 import { SiAsciinema } from "solid-icons/si"
+import { isArchive } from "~/store/archive"
 
 const iconMap = {
   "dmg,ipa,plist,tipa": BsApple,
   "exe,msi": BsWindows,
-  "zip,gz,rar,7z,tar,jar,xz": BsFileEarmarkZipFill,
   apk: ImAndroid,
   db: FaSolidDatabase,
   md: BsMarkdownFill,
@@ -49,12 +49,15 @@ const iconMap = {
   cast: SiAsciinema,
 }
 
-export const getIconByTypeAndExt = (type: number, ext: string) => {
+export const getIconByTypeAndName = (type: number, name: string) => {
   if (type !== ObjType.FOLDER) {
     for (const [extensions, icon] of Object.entries(iconMap)) {
-      if (extensions.split(",").includes(ext.toLowerCase())) {
+      if (extensions.split(",").includes(ext(name).toLowerCase())) {
         return icon
       }
+    }
+    if (isArchive(name)) {
+      return BsFileEarmarkZipFill
     }
   }
   switch (type) {
@@ -87,5 +90,5 @@ export const getIconByTypeAndExt = (type: number, ext: string) => {
 }
 
 export const getIconByObj = (obj: Pick<Obj, "type" | "name">) => {
-  return getIconByTypeAndExt(obj.type, ext(obj.name))
+  return getIconByTypeAndName(obj.type, obj.name)
 }

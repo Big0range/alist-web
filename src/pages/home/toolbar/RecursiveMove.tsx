@@ -1,17 +1,20 @@
 import {
   Button,
+  createDisclosure,
+  HStack,
   Modal,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  createDisclosure,
+  SimpleOption,
+  SimpleSelect,
 } from "@hope-ui/solid"
 import { ModalFolderChoose } from "~/components"
 import { useFetch, usePath, useRouter, useT } from "~/hooks"
 import { bus, fsRecursiveMove, handleRespWithNotifySuccess } from "~/utils"
-import { onCleanup } from "solid-js"
+import { createSignal, onCleanup } from "solid-js"
 
 export const RecursiveMove = () => {
   const {
@@ -23,9 +26,11 @@ export const RecursiveMove = () => {
   const [loading, ok] = useFetch(fsRecursiveMove)
   const { pathname } = useRouter()
   const { refresh } = usePath()
+  const [conflictPolicy, setConflictPolicy] = createSignal("cancel")
   const handler = (name: string) => {
     if (name === "recursiveMove") {
       openConfirmModal()
+      setConflictPolicy("cancel")
     }
   }
   bus.on("tool", handler)
@@ -68,11 +73,30 @@ export const RecursiveMove = () => {
       </Modal>
 
       <ModalFolderChoose
+        header={t("home.toolbar.choose_dst_folder")}
         opened={isOpen()}
         onClose={onClose}
         loading={loading()}
+        footerSlot={
+          <HStack mr="auto" flex="0.8" spacing="$1">
+            <SimpleSelect
+              value={conflictPolicy()}
+              onChange={(value) => setConflictPolicy(value)}
+            >
+              <SimpleOption value="cancel">
+                {t("home.conflict_policy.cancel_if_exists")}
+              </SimpleOption>
+              <SimpleOption value="overwrite">
+                {t("home.conflict_policy.overwrite_existing")}
+              </SimpleOption>
+              <SimpleOption value="skip">
+                {t("home.conflict_policy.skip_existing")}
+              </SimpleOption>
+            </SimpleSelect>
+          </HStack>
+        }
         onSubmit={async (dst) => {
-          const resp = await ok(pathname(), dst)
+          const resp = await ok(pathname(), dst, conflictPolicy())
           handleRespWithNotifySuccess(resp, () => {
             refresh()
             onClose()

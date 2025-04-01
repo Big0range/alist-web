@@ -76,6 +76,8 @@ const Upload = () => {
   const [drag, setDrag] = createSignal(false)
   const [uploading, setUploading] = createSignal(false)
   const [asTask, setAsTask] = createSignal(false)
+  const [overwrite, setOverwrite] = createSignal(false)
+  const [rapid, setRapid] = createSignal(true)
   const [uploadFiles, setUploadFiles] = createStore<{
     uploads: UploadFileProps[]
   }>({
@@ -117,6 +119,8 @@ const Upload = () => {
           setUpload(path, key, value)
         },
         asTask(),
+        overwrite(),
+        rapid(),
       )
       if (!err) {
         setUpload(path, "status", "success")
@@ -274,14 +278,32 @@ const Upload = () => {
                 }}
               />
             </HStack>
-            <Checkbox
-              checked={asTask()}
-              onChange={() => {
-                setAsTask(!asTask())
-              }}
-            >
-              {t("home.upload.add_as_task")}
-            </Checkbox>
+            <HStack spacing="$4">
+              <Checkbox
+                checked={asTask()}
+                onChange={() => {
+                  setAsTask(!asTask())
+                }}
+              >
+                {t("home.upload.add_as_task")}
+              </Checkbox>
+              <Checkbox
+                checked={overwrite()}
+                onChange={() => {
+                  setOverwrite(!overwrite())
+                }}
+              >
+                {t("home.conflict_policy.overwrite_existing")}
+              </Checkbox>
+              <Checkbox
+                checked={rapid()}
+                onChange={() => {
+                  setRapid(!rapid())
+                }}
+              >
+                {t("home.upload.try_rapid")}
+              </Checkbox>
+            </HStack>
           </Show>
         </VStack>
       </Show>

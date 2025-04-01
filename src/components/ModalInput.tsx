@@ -31,6 +31,8 @@ export type ModalInputProps = {
   tips?: string
   topSlot?: JSXElement
   bottomSlot?: JSXElement
+  footerSlot?: JSXElement
+  onDrop?: (e: DragEvent, setValue: (value: string) => void) => void
 }
 export const ModalInput = (props: ModalInputProps) => {
   const [value, setValue] = createSignal(props.defaultValue ?? "")
@@ -68,13 +70,18 @@ export const ModalInput = (props: ModalInputProps) => {
     })
   })
 
+  createEffect(() => {
+    if (!props.opened) {
+      setValue("")
+    }
+  })
+
   const submit = () => {
     if (!value()) {
       notify.warning(t("global.empty_input"))
       return
     }
     props.onSubmit?.(value())
-    setValue("")
   }
 
   return (
@@ -85,7 +92,7 @@ export const ModalInput = (props: ModalInputProps) => {
       initialFocus="#modal-input"
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent onDrop={(e) => props.onDrop?.(e, setValue)}>
         {/* <ModalCloseButton /> */}
         <ModalHeader>{t(props.title)}</ModalHeader>
         <ModalBody>
@@ -126,6 +133,7 @@ export const ModalInput = (props: ModalInputProps) => {
           <Show when={props.bottomSlot}>{props.bottomSlot}</Show>
         </ModalBody>
         <ModalFooter display="flex" gap="$2">
+          <Show when={props.footerSlot}>{props.footerSlot}</Show>
           <Button onClick={props.onClose} colorScheme="neutral">
             {t("global.cancel")}
           </Button>

@@ -37,9 +37,14 @@
   "devDependencies": {
     "@crowdin/cli": "^3.7.10",
     "@hrgui/libass-wasm-ts": "^1.0.3",
+<<<<<<< HEAD
+=======
+    "@types/bencode": "^2.0.4",
+>>>>>>> source/main
     "@types/crypto-js": "^4.2.2",
     "@types/mark.js": "^8.11.8",
     "@types/node": "^20.0.0",
+    "@types/qrcode": "^1.5.5",
     "@types/sha256": "^0.2.0",
     "@types/streamsaver": "^2.0.1",
     "@vitejs/plugin-legacy": "^2.0.1",
@@ -71,18 +76,24 @@
     "artplayer-plugin-danmuku": "^5.0.1",
     "asciinema-player": "^3.6.3",
     "axios": "^1.0.0",
+    "bencode": "^4.0.0",
     "chardet": "^2.0.0",
     "clsx": "^2.0.0",
     "copy-to-clipboard": "^3.3.2",
     "crypto-js": "^4.2.0",
     "flv.js": "^1.6.2",
+<<<<<<< HEAD
     "git-cz": "^4.9.0",
+=======
+    "hash-wasm": "^4.12.0",
+>>>>>>> source/main
     "hls.js": "^1.2.1",
     "just-once": "^2.2.0",
     "libass-wasm": "^4.1.0",
     "lightgallery": "^2.5.0",
     "mark.js": "^8.11.1",
     "mitt": "^3.0.0",
+    "qrcode": "^1.5.4",
     "rehype-katex": "^6.0.3",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
